@@ -25,7 +25,7 @@
 	<tbody>
 		{{!-- Our Handlebars code goes here! --}}
 		{{#each contacts}}
-		   <tr>
+		   <tr data-id= "{{ id }}">
 			   {{!-- You can also use this.firstName in the brackets --}}
 			   <td>{{firstName}}</td>
 			   <td>{{lastName}}</td>
