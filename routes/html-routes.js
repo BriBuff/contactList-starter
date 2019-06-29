@@ -2,13 +2,20 @@ var db = require("../models");
 
 module.exports = function(app) {
     // this route should render the Handlebars 'form' template
-	app.get("/contacts/new", function(req, res) {
-        
+    app.get("/contacts/new", function(req, res) {
+        // calls handlebars form- doesn't need the .handlebars
+        res.render("form");
     });
 
     // this route should find all contacts in the table and render them using the Handlebars 
     // 'contacts' template, sorted ascending by lastName, then by firstName
     app.get("/", function(req, res) {
+        db.Contact.findAll({
+            order: [["lastName", "ASC"], ["firstName", "ASC"]]
+        }).then(function(contacts){
+            console.log(contacts.dataValues);
+            res.render("contacts", { contacts, name: "Me"})
+        });
 
     });
 
