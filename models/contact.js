@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: "Personal"
         },      
 
-        // phoneNumber (VARCHAR, NULL, length 10 characters, numbers only)
+        // phoneNumber (VARCHAR, NULL, length 10 characters, numbers only). Either will have an input meeting the validate or nothing at all.
         phoneNumber: {
             type: DataTypes.STRING,
             // Already built in-not needed, will default to true
@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
 
         },
 
-        // emailAddress (VARCHAR, NULL, must be valid email format)
+        // emailAddress (VARCHAR, NULL, must be valid email format). Either will have an input meeting the validate or nothing at all.
         emailAddress: {
             type: DataTypes.STRING,
             validate: {
